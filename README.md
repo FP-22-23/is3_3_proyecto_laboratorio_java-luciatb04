@@ -1,58 +1,71 @@
-# Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<XX\>/\<YY\>)
-Autor/a: \<nombre del autor\>   uvus:\<uvus del autor\>
+# Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  22/23)
+Autor/a: Lucia Torres   uvus: DKT328
 
-Aquí debes añadir la descripción del dataset y un enunciado del dominio del proyecto.
+El dataset trata sobre las peliculas y series estrenadas en la plataforma de streaminig Netflix. 
 
 
 ## Estructura de las carpetas del proyecto
 
 * **/src**: Contiene los diferentes archivos que forman parte del proyecto. Debe estar estructurado en los siguentes paquetes
-  * **fp.\<dominio\>**: Paquete que contiene los tipos del proyecto.
-  * **fp.\<dominio\>.test**: Paquete que contiene las clases de test del proyecto.
+  * **fp.series**: Paquete que contiene los tipos del proyecto.
+  * **fp.series.test**: Paquete que contiene las clases de test del proyecto.
   * **fp.common**: Paquete que contiene los tipos auxiliares del proyecto
   * **fp.utiles**:  Paquete que contiene las clases de utilidad. 
 * **/data**: Contiene el dataset o datasets del proyecto
-    * **\<dataset1.csv\>**: Añade una descripción genérica del dataset.
-    * **\<dataset2.csv\>**: Añade una descripción del resto de datasets que puedas tener.
+   * **peliculasdataset-copia.csv**: el dataset contiene un total de 10 columnas. 
+
     
 ## Estructura del *dataset*
 
-Aquí debes describir la estructura del dataset explicando qué representan los datos que contiene y la descripción de cada una de las columnas. Incluye también la URL del dataset original.
+Se puede obtener de la URL http://kaggle.com/aungpyaeap/movie-streaming-datasets-iflix . Originalmente tenia 7 columnas sobre series y peliculas de Netflix. El dataset utilizado en el proyecto tiene 10 columnas de las cuales 5 se han tomado del dataset original y 5 (fecha, hora, ranking, el booleano y efectos especiales) se han generado de forma aleatoria. A continuacion se describen las 10 columna:
 
-El dataset está compuesto por \<N\> columnas, con la siguiente descripción:
+El dataset está compuesto por 10 columnas, con la siguiente descripción:
 
-* **\<columna 1>**: de tipo \<tipo\>, representa....
-* **\<columna 2>**: de tipo \<tipo\>, representa....
-....
+* **show_type**: de tipo Formato, representa si se trata de peliculas o de series de televisión.
+* **genre**: de tipo String, representa el género cinematografico 
+* **running_minutes**: de tipo Integer, representa los minutos que dura dicha pelicula/serie.
+* **source_language**: de tipo String, representa el idioma original en la que esta la pelicula/serie.
+* **season_id**: de tipo Integer, representa el número de temporada que tienen las series, en el caso de las peliculas esa columna se encuentra sin valor.
+* **sereis_id**: de tipo Integer, repressenta el id de las series, en el caso de las peliculas esa columna se encuentra sin valor.
+* **finished**: de tipo booleano, representa si la serie ha terminado.
+* **ranking**: de tipo Double, representa la puntuacion qeu le han dado a la serie/pelicula.
+* **estreno_fecha**: de tipo LocalDate, rerepresenta la fecha (formato dd/mm/aaaa) de estreno de la pelicula/serie.
+* **estreno_hora**: de tipo LocalTime, rerepresenta la hora (formato hh/MM/ss) de estreno de la pelicula/serie.
+* **efectos especales**: de tipo lista, representa los distintos efectos especiales utilizados en las series/peliculas. Varia entre efectos de Sonido, efectos de Maquillaje y efectos Ópticos.
+
 
 ## Tipos implementados
 
-Describe aquí los tipos que usas en tu proyecto.
+Los tipos que se han implementado en el proyecto son los siguientes:
 
 ### Tipo Base
-Descripción breve del tipo base.
 
 **Propiedades**:
 
-- _propiedad1_, de tipo \<Tipo1\>, consultable. 
-- _propiedad2_, de tipo \<Tipo2\>, consultable y modificable. 
-- ...
-- 
+- showType, de tipo Formato , consultable. 
+- genre, de tipo String, consultable y modificable. 
+- sourceLanguage, de tipo String, consultable.
+- seasonId, de tipo Integer, consultable y modificable. 
+- seriesId,de tipo Integer, consultable. 
+- finished, de tipo Boolean, consultable y modificable
+- estrenoHora, de tipo LocalTime, consultable
+- ranking, de tipo Double, consultable y modificable.
+- estrenoFecha, de tipo LocalDate, consultable
+- efectosEspeciales, de tipo String, consultable y modificable
+
 **Constructores**: 
 
-- C1: Descripción del constructor 1.
-- C2: Descripción del constructor 2.
-- ...
+- C1: Tiene un parametro por cada propiedad basica.
+- C2: Crea un objeto Peliculas en donde tiene como parametro el genero, el ranking, las temporadas y los efectos especiales.
 
 **Restricciones**:
  
-- R1: Descripción de la restricción 1.
-- R2: Descripción de la restricción 2.
-- ...
-- 
-**Criterio de igualdad**: Describir el criterio de igualdad
+- R1: El ranking no puede ser negativo.
+- R2: Se debe indicar el genero de la pelicula/serie.
 
-**Criterio de ordenación**: Describir el criterio de ordenación (si lo hay).
+**Criterio de igualdad**: Las peliculas se consideran iguales si los atributos estrenoHora, genre, ranking y sourceLanguage son iguales.
+
+**Criterio de ordenación**: Las series se ordenan a partir del ranking y del numero de temporadas.
 
 **Otras operaciones**:
  
@@ -60,7 +73,8 @@ Descripción breve del tipo base.
 - ...
 
 #### Tipos auxiliares
-Descripción de los tipos auxiliares que sean necesarios añadir al proyecto.
+- Formato de tipo Enumerate, puede tomar los valores TV y MOVIE.
+- Siglo de tipo Enumerate, puede tomar los valores XX y XXI.
 
 ### Factoría
 Descripción breve de la factoría.
