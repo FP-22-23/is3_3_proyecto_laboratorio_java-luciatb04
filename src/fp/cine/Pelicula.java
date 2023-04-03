@@ -1,30 +1,35 @@
-package fp.common;
+package fp.cine;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalTime;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Peliculas {
+import fp.common.Formato;
+import fp.common.Horario;
+import fp.common.Siglo;
+import fp.utiles.Checkers;
+
+public class Pelicula {
 	
 	//---------------------------------ATRIBUTOS-------------------------------------
 	private Formato showType;
 	private String genre;
+	private Integer runningMinutes;
 	private String sourceLanguage;
-	private Integer seasonId;
-	private Integer seriesId;
+	private Integer peliculaId;
 	private Boolean finished;
-	private LocalTime estrenoHora;
 	private Double ranking;
-	private LocalDate estrenoFecha;
+	private LocalDateTime fechaHora;
 	private List<String> efectosEspeciales;
+	private Horario horario;
 	
 	
 	//-----------------------------PRIMER CONTRUCTOR-----------------------------
 	
-	public Peliculas(Formato st, String genre,String language, Integer season, Integer series_id, Boolean finish,  
-					LocalTime ehora, Double ranking, LocalDate efecha, List<String> efectos ) {
+	public Pelicula(Formato st, String genre, Integer minutes,String language, Integer pelicula_id, Boolean finish,  
+					 Double ranking, List<String> efectos, LocalDateTime fechaHora, Horario horario ) {
 		
 	//restricciones
 		
@@ -36,21 +41,25 @@ public class Peliculas {
 			throw new IllegalArgumentException("Se debe indicar el genero de la pelicula/serie.");
 		}
 		
+		if (fechaHora.isAfter(LocalDateTime.now())){
+			throw new IllegalArgumentException("La fecha de estreno no puede ser en el futuro ");
+		}
+		
 		this.showType = st;
 		this.genre = genre;
+		this.runningMinutes= minutes;
 		this.sourceLanguage = language;
-		this.seasonId = season;
-		this.seriesId = series_id;
+		this.peliculaId = pelicula_id;
 		this.finished= finish;
-		this.estrenoHora= ehora;
 		this.ranking= ranking;
-		this.estrenoFecha= efecha;
 		this.efectosEspeciales= efectos;
-		
+		this.fechaHora= fechaHora;
+		this.horario= horario;
+	
 		
 	}
 	//----------------------------CONSTRUCTOR 2-------------------------------
-	public Peliculas(String genre, Integer season, Double ranking, List<String> efectos) {
+	public Pelicula(String genre, Integer season, Double ranking, List<String> efectos,LocalDateTime fechaHora, Horario horario) {
 		
 		if (ranking < 0.0) {
 			throw new IllegalArgumentException("El ranking no puede ser negativo.") ;
@@ -59,14 +68,17 @@ public class Peliculas {
 		if (genre == "") {
 			throw new IllegalArgumentException("Se debe indicar el genero de la pelicula/serie.");
 		}
-		
+		if (fechaHora.isAfter(LocalDateTime.now())){
+			throw new IllegalArgumentException("La fecha de estreno no puede ser en el futuro ");
+		}
 			
 		this.showType= Formato.TV;
 		this.genre= genre;
-		this.seasonId= season;
-		this.seriesId= null;
+		this.peliculaId= null;
 		this.ranking= ranking;
 		this.efectosEspeciales= efectos;
+		this.fechaHora = fechaHora;
+		this.horario= null;
 		
 	}
 
@@ -85,16 +97,11 @@ public class Peliculas {
 			throw new IllegalArgumentException("Se debe indicar el genero de la pelicula/serie.");
 		}
 	}
-
-
-
-	public Integer getSeasonId() {
-		return seasonId;
+	public Integer getRunningMinutes() {
+		return runningMinutes;
 	}
-
-
-	public void setSeasonId(Integer season_id) {
-		this.seasonId = season_id;
+	public void setRunningMinutes(Integer runningMinutes) {
+		this.runningMinutes = runningMinutes;
 	}
 
 
@@ -132,18 +139,9 @@ public class Peliculas {
 
 
 	public Integer getSeriesId() {
-		return seriesId;
+		return peliculaId;
 	}
 
-
-	public LocalTime getEstrenoHora() {
-		return estrenoHora;
-	}
-
-
-	public LocalDate getEstrenoFecha() {
-		return estrenoFecha;
-	}
 	
 	public List<String> getEfectosEspeciales() {
 		return efectosEspeciales;
@@ -152,20 +150,29 @@ public class Peliculas {
 	public void setEfectos_especiales(List<String> efectosEspeciales) {
 		this.efectosEspeciales = efectosEspeciales;
 	}
-		
+	public LocalDateTime getFechaHora() {
+		return fechaHora;
+	}
+	public void setFechaHora(LocalDateTime fechaHora) {
+		this.fechaHora = fechaHora;
+		if (fechaHora.isAfter(LocalDateTime.now())){
+			throw new IllegalArgumentException("La fecha de estreno no puede ser en el futuro ");
+		}
+	}
+	public Horario getHorario() {
+		return horario;
+	}
+
 	
 
 	//-------------------------------TO STRING-------------------------------------
-	
 	@Override
 	public String toString() {
-		return "Peliculas [showType=" + showType + ", genre=" + genre + ", sourceLanguage=" + sourceLanguage
-				+ ", seasonId=" + seasonId + ", seriesId=" + seriesId + ", finished=" + finished + ", estrenoHora="
-				+ estrenoHora + ", ranking=" + ranking + ", estrenoFecha=" + estrenoFecha + ", efectosEspeciales="
-				+ efectosEspeciales + "]";
+		return "Pelicula [showType=" + showType + ", genre=" + genre +", minutes="+ runningMinutes+ ", sourceLanguage=" + sourceLanguage
+				+  ", peliculaId=" + peliculaId + ", finished=" + finished + ", ranking="
+				+ ranking + ", fechaHora=" + fechaHora + ", efectosEspeciales=" + efectosEspeciales + ", horario="
+				+ horario + "]";
 	}
-	
-	
 	
 	
 	
@@ -173,7 +180,7 @@ public class Peliculas {
 	
 	public Siglo getSiglo() {
 		Siglo s= null;
-				if(this.getEstrenoFecha().getYear()<= 1999) {
+				if(this.getFechaHora().getYear()<= 1999) {
 					s= Siglo.XX;
 				}
 				else {
@@ -184,9 +191,9 @@ public class Peliculas {
 	
 	//----------------------------EQUALS-------------------------------------------
 	
-@Override
+	@Override
 	public int hashCode() {
-		return Objects.hash(estrenoHora, genre, ranking, showType, sourceLanguage);
+		return Objects.hash(genre, ranking);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -196,23 +203,23 @@ public class Peliculas {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Peliculas other = (Peliculas) obj;
-		return Objects.equals(estrenoHora, other.estrenoHora) && Objects.equals(genre, other.genre)
-				&& Objects.equals(ranking, other.ranking) && showType == other.showType
-				&& Objects.equals(sourceLanguage, other.sourceLanguage);
+		Pelicula other = (Pelicula) obj;
+		return Objects.equals(genre, other.genre) && Objects.equals(ranking, other.ranking);
 	}
-	
-	
-	
+
+
+
 	
 	//-----------------------------COMPARETO---------------------------------------------
-public int compareTo(Peliculas p) {
+	
+	
+	public int compareTo(Pelicula p) {
 
 	int p1;
 	p1= getRanking().compareTo(p.getRanking());
 		
 		if (p1== 0.0) {
-			p1= getSeasonId().compareTo(p.getSeasonId());
+			p1= getGenre().compareTo(p.getGenre());
 			
 		}
 	
@@ -220,8 +227,7 @@ public int compareTo(Peliculas p) {
 	
 	
 }
-	
-	
+
 	
 }
 

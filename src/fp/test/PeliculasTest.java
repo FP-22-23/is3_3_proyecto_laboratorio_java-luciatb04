@@ -1,21 +1,25 @@
 package fp.test;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import fp.cine.Pelicula;
 import fp.common.Formato;
-import fp.common.Peliculas;
+import fp.common.Horario;
 
 public class PeliculasTest {
 
 	public static void main(String[] args) {
 		//--------------------TEST DE LOS CONSTRUCTORES-----------------
 		
-		ArrayList<String> efectos= new ArrayList<String>(Arrays.asList("Opticos", "Sonido"));
-		Peliculas p1 = new Peliculas (Formato.TV, "Drama", "English", 3, 56, true, LocalTime.of(14, 8, 26), 7.2, LocalDate.of(2015, 02, 04), efectos );
-		Peliculas p2 = new Peliculas(Formato.TV, "Comedia", "Spanish", 5, null, false, LocalTime.of(4, 17, 54), 1.5, null, efectos ) ;
+		Horario horario = new Horario (LocalDate.of(2015, 03, 06), LocalTime.of(21, 04, 53));
+		List<String> efectos= new ArrayList<String>(Arrays.asList("Opticos", "Sonido"));
+		Pelicula p1 = new Pelicula (Formato.TV, "Drama", 65, "English", 32, true, 7.2,  efectos, LocalDateTime.of(2012, 01, 30, 12, 19,00), horario);
+		Pelicula p2 = new Pelicula(Formato.TV, "Comedia", 259, "Spanish", 58, false, 1.5, efectos, LocalDateTime.of(1999,6, 30, 10, 10, 20), null ) ;
 
 		System.out.println("\n--------------------PRUEBA CONSTRUCTORES-------------------------------");
 		System.out.println(p1);
