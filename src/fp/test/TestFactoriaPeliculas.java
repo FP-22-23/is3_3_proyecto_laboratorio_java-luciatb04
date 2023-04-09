@@ -10,12 +10,14 @@ public class TestFactoriaPeliculas {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		List<Pelicula> peliculas = PeliculasFactoria.leerPelicula("./data/peliculasdataset.csv");
-		for(Pelicula p: peliculas) {
-			System.out.println(p);
-			
+		List<Pelicula> audiovisual = PeliculasFactoria.leerPelicula("./data/peliculasdataset.csv");
+		
+		for(Integer i = 0; i < audiovisual.size(); i++) {
+		    System.out.println(audiovisual.get(i));
 		}
-		System.out.println("se han leido: " + peliculas.size() + " registros.");
+			
+	
+		System.out.println("se han leido: " + audiovisual.size() + " registros.");
 		
 	}
 

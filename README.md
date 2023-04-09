@@ -12,7 +12,7 @@ El dataset trata sobre las peliculas y series estrenadas en la plataforma de str
   * **fp.common**: Paquete que contiene los tipos auxiliares del proyecto
   * **fp.utiles**:  Paquete que contiene las clases de utilidad. 
 * **/data**: Contiene el dataset o datasets del proyecto
-   * **peliculasdataset-copia.csv**: el dataset contiene un total de 10 columnas. 
+   * **peliculasdataset.csv**: el dataset contiene un total de 10 columnas. 
 
     
 ## Estructura del *dataset*
@@ -25,8 +25,7 @@ El dataset está compuesto por 10 columnas, con la siguiente descripción:
 * **genre**: de tipo String, representa el género cinematografico 
 * **running_minutes**: de tipo Integer, representa los minutos que dura dicha pelicula/serie.
 * **source_language**: de tipo String, representa el idioma original en la que esta la pelicula/serie.
-* **season_id**: de tipo Integer, representa el número de temporada que tienen las series, en el caso de las peliculas esa columna se encuentra sin valor.
-* **sereis_id**: de tipo Integer, repressenta el id de las series, en el caso de las peliculas esa columna se encuentra sin valor.
+* **sereis_id**: de tipo Integer, representa el id de las series, en el caso de las peliculas esa columna se encuentra sin valor.
 * **finished**: de tipo booleano, representa si la serie ha terminado.
 * **ranking**: de tipo Double, representa la puntuacion qeu le han dado a la serie/pelicula.
 * **estreno_fecha**: de tipo LocalDate, rerepresenta la fecha (formato dd/mm/aaaa) de estreno de la pelicula/serie.
@@ -45,7 +44,6 @@ Los tipos que se han implementado en el proyecto son los siguientes:
 - showType, de tipo Formato , consultable. 
 - genre, de tipo String, consultable y modificable. 
 - sourceLanguage, de tipo String, consultable.
-- seasonId, de tipo Integer, consultable y modificable. 
 - seriesId,de tipo Integer, consultable. 
 - finished, de tipo Boolean, consultable y modificable
 - estrenoHora, de tipo LocalTime, consultable
@@ -62,53 +60,47 @@ Los tipos que se han implementado en el proyecto son los siguientes:
  
 - R1: El ranking no puede ser negativo.
 - R2: Se debe indicar el genero de la pelicula/serie.
-
+- R3: La fecha de estreno no puede ser en el futuro.
 **Criterio de igualdad**: Las peliculas se consideran iguales si los atributos estrenoHora, genre, ranking y sourceLanguage son iguales.
 
 **Criterio de ordenación**: Las series se ordenan a partir del ranking y del numero de temporadas.
 
-**Otras operaciones**:
- 
--	_método 1_: Descripción del método 1.
-- ...
 
 #### Tipos auxiliares
 - Formato de tipo Enumerate, puede tomar los valores TV y MOVIE.
 - Siglo de tipo Enumerate, puede tomar los valores XX y XXI.
+- horario de tipo Horario, qeu es un record que junta la fecha y la hora
 
 ### Factoría
 Descripción breve de la factoría.
 
-- _método 1_: Descripción del método 1.
--	_método 2_: Descripción del método 2.
+- Lectura del fichero
+- Parseo de la lista
+- Parseo del fichero.
 
 ### Tipo Contenedor
 
-Descripción breve del tipo contenedor.
+El contenedor se llama Peliculass y esta formado por una Lista
 
 **Propiedades**:
 
-- _propiedad1_, de tipo \<Tipo1\>, consultable. 
-- _propiedad2_, de tipo \<Tipo2\>, consultable y modificable. 
-- ...
-- 
+- Propiedad 1: List<Pelicula> Peliculass (consultable)
 **Constructores**: 
 
-- C1: Descripción del constructor 1.
-- C2: Descripción del constructor 2.
-- ...
+- C1: una lista vacia
+- C2: un stream<Pelicula>
 
-**Restricciones**:
- 
-- R1: Descripción de la restricción 1.
-- R2: Descripción de la restricción 2.
-- ...
 - 
-**Criterio de igualdad**: Describir el criterio de igualdad
+**Criterio de igualdad**: igual se las listas son iguales
 
-**Criterio de ordenación**: Describir el criterio de ordenación (si lo hay).
 
 **Otras operaciones**:
  
--	_método 1_: Descripción del método 1.
-- ...
+- obtener numero de elementos
+- añadir elementos
+- eliminar elementos
+- un metodo de existe una pelicula que tenga el genero y el idioma dado.
+- conseguir el numero de peliculas que sean de un idioma determinado.
+- Filtrar una lista con los datos de las peliculas que tengan un id determinado.
+- un Map cuyo valor sea un conjunto de los id de las peliculas y la llave sea los generos de las peliculas.
+- un Map sumador que sume las duraciones de las peliculas como valor y lños generos como llave 

@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 import fp.common.Formato;
 import fp.common.Horario;
-import fp.utiles.Checkers;
 
 
 public class PeliculasFactoria {
@@ -40,13 +39,13 @@ public class PeliculasFactoria {
 		List<Pelicula> serie = new ArrayList<>();
 		try {
 			serie = Files.lines(Paths.get(path)).skip(1).map(PeliculasFactoria::parsearPelicula).collect(Collectors.toList());
-		
+
 		}catch(IOException e){
 			System.out.println("No se ha encuentrado el fichero" + path);
 			e.printStackTrace();
 		}
-		
-			
+
+
 			return serie;
 	}
 	

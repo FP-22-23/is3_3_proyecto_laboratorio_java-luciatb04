@@ -15,7 +15,7 @@ public class PeliculasTest {
 
 	public static void main(String[] args) {
 		//--------------------TEST DE LOS CONSTRUCTORES-----------------
-		
+	
 		Horario horario = new Horario (LocalDate.of(2015, 03, 06), LocalTime.of(21, 04, 53));
 		List<String> efectos= new ArrayList<String>(Arrays.asList("Opticos", "Sonido"));
 		Pelicula p1 = new Pelicula (Formato.TV, "Drama", 65, "English", 32, true, 7.2,  efectos, LocalDateTime.of(2012, 01, 30, 12, 19,00), horario);
