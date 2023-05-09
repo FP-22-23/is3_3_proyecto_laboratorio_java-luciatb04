@@ -2,6 +2,7 @@ package fp.cine;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import fp.common.Formato;
 import fp.common.Horario;
@@ -48,6 +50,25 @@ public class PeliculasFactoria {
 
 			return serie;
 	}
+	
+	
+	//---------------------------LECTURA POR STREAM----------------------------
+	
+	public static PeliculasssContenedor leerPeliculasStream(String ruta) {
+		PeliculasssContenedor res = null;
+		try {
+			Stream<Pelicula> stPelicula = Files.lines(Paths.get(ruta)).skip(1).map(PeliculasFactoria::parsearPelicula);
+			res = new PeliculasssContenedor(stPelicula);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	
+	
+	
+	
 	
 	//-----------------------------PARSEAR------------------------------------
 	

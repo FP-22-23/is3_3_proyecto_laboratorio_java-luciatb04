@@ -61,46 +61,81 @@ Los tipos que se han implementado en el proyecto son los siguientes:
 - R1: El ranking no puede ser negativo.
 - R2: Se debe indicar el genero de la pelicula/serie.
 - R3: La fecha de estreno no puede ser en el futuro.
-**Criterio de igualdad**: Las peliculas se consideran iguales si los atributos estrenoHora, genre, ranking y sourceLanguage son iguales.
+**Criterio de igualdad**: Las peliculas se consideran iguales si los atributos genre y ranking y son iguales.
 
-**Criterio de ordenación**: Las series se ordenan a partir del ranking y del numero de temporadas.
+**Criterio de ordenación**: Las series se ordenan a partir del ranking y del genero.
 
 
 #### Tipos auxiliares
 - Formato de tipo Enumerate, puede tomar los valores TV y MOVIE.
 - Siglo de tipo Enumerate, puede tomar los valores XX y XXI.
-- horario de tipo Horario, qeu es un record que junta la fecha y la hora
+- horario de tipo Horario, que es un record que junta la fecha y la hora
 
 ### Factoría
 Descripción breve de la factoría.
 
-- Lectura del fichero
-- Parseo de la lista
-- Parseo del fichero.
+- List<String>parsearEfectos(String lista): parseo de la lista del csv.
+- PeliculasssContenedor leerPeliculasStream(String ruta):lee el fichero del CSV de los objetos del tipo Peliculas registrados por stream
+- List<Pelicula> leerPelicula(String path): lee el fichero CSV de los objetos del tipo Peliculas registrado por lista.
+- Pelicula parsearPelicula(String linea): crea un objeto de tipo Pelicula a partir de una cadena de caracteres. La cadena de caracteres debe tener el mismo formato que las lineas del CSV.
 
 ### Tipo Contenedor
 
-El contenedor se llama Peliculass y esta formado por una Lista
+El contenedor se llama PeliculasssContenedor y esta formado por una Lista 
 
 **Propiedades**:
 
 - Propiedad 1: List<Pelicula> Peliculass (consultable)
 **Constructores**: 
 
-- C1: una lista vacia
-- C2: un stream<Pelicula>
+- C1: crea una lista vacia de tipo PeliculasssContenedor
+- C2: constructor con un parametro de tipo stream<Pelicula> Crea un objeto de tipo Pelicula con las partidas incluidas en el Stream dado
+- C3: constructor con un parametro de tipo Collection<Pelicula>. crea un objeto de tipo PeliculasssContenedor con las peliculas incluidas en la coleccion.
 
 - 
-**Criterio de igualdad**: igual se las listas son iguales
+**Criterio de igualdad**: Dos peliculas son iguales si lo son sus propiedades Peliculas.
 
 
 **Otras operaciones**:
  
-- obtener numero de elementos
-- añadir elementos
-- eliminar elementos
-- un metodo de existe una pelicula que tenga el genero y el idioma dado.
-- conseguir el numero de peliculas que sean de un idioma determinado.
-- Filtrar una lista con los datos de las peliculas que tengan un id determinado.
-- un Map cuyo valor sea un conjunto de los id de las peliculas y la llave sea los generos de las peliculas.
-- un Map sumador que sume las duraciones de las peliculas como valor y lños generos como llave 
+ ---------ENTREGA 2----------
+ 
+-añadir peliculas al constructor
+
+-eliminar peliculas al constructor
+
+-conseguir el tamaño de la lista del csv
+
+-Boolean existePeliculaGeneroIdioma(String g, String i): devuelve verdadero o falso si exite cierta pelicula/serie que tenga el genero y el idioma especificado.
+
+-Integer getNumeroPeliculaIdiomaDeUnAño(String i, Integer a): devuelve 
+el numero total de peliculas y series de un idioma y año especificado.
+
+-List<Pelicula> filtradoSoloPeliculaId(Integer a, Formato p): devuelve una lista de tipo Pelicula que existan en el año y el formato especificado.
+
+-Map<String, Set<Integer>> getListaIdPorGenero():  devuelve un mapa en donde las claves son los distintos generos y los valores son un conjunto de los id de las dsitintas series y peliculas.
+
+-Map<String, Long> getTotalDuracionPorGenero(): devuelve un mapa que sus claves seam el genero y los valores la suma total de las duraciones.
+
+ ---------ENTREGA 3----------
+
+-Boolean existePeliculaGeneroIdidomaStream(String g, String i): devuelve verdadero o falso si exite cierta pelicula/serie que tenga el genero y el idioma especificado.
+
+-Integer calcularMinutosTotalesPorIdioma(String g): devuelve el total de los minutos que duran las series/peliculas de un genero especificado.
+
+-Set<Pelicula> peliculasEntreDosDuracionesDadas(Integer max, Integer min): un filtrado que devuelve un set de peliculas que sus duraciones estan entre dos Integer especificados.
+
+-Map<List<String>, Set<Integer>> getSeriesListaEfectosConjuntoAños(): filtra solo a las series y haga un mapa con las listas de los efectos especiales como clave y los distintos años como valores.
+
+-Pelicula mejorRankingAcabadaIidoma(String idioma): filtra la pelicula con peor ranking de un idioma especificado o si no devuelve nulo.
+ 
+-List<Pelicula> obtenerNSeriesGeneroOrdenadosPorElRanking(String g, Integer n):devuelve una lista que filtra por genero y que solo sean series y ordenas las n mejores por el ranking 
+
+-Map<Integer, Set<Integer>> agruparIdPorMes(): filtra las series y devuelve un mapa que tenga los valores de los meses (integer) y un conjunto de los id de las series.
+
+-Map<String, Pelicula> fechasConPeliculasConPeoresRankings(Integer año): construye un mapa que filtre por el año especificado y que tengaa los idiomas como claves y los datos de las peliculas con los  peores ranking.
+
+-SortedMap<String, Integer> getSeriesTerminadasAcumuladasPorGenero(): filtra solo las series que hayan terminado y crea un SortedMap con los generos como claves y el numero total de series como los valores.
+
+-Entry<Integer, Long> getMayorPeliculasPorAñoTerminadas(): crea un mapa que filtre solo las peliculas ya terminadas y que tenga el año como clave y el valor como el numero total de peliculas. Quedese con el año y el numero mayor. 
+

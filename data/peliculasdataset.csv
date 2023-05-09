@@ -173,7 +173,7 @@ TV;Comedy;22;English;27;false;6.0;31/01/2017;09:02:05;Maquillaje Optico Sonido
 TV;Comedy;22;English;27;false;4.9;18/06/2011;11:57:46;Optico
 TV;Comedy;22;English;27;false;0.9;19/11/2002;05:20:02;Sonido
 TV;Comedy;20;English;49;false;3.1;21/04/2001;04:35:25;Optico Sonido
-MOVIE;Fantasy;139;English;49;true;0.9;12/07/2005;10:08:25;Maquillaje Sonido
+MOVIE;Fantasy;23;Spanish;49;true;0.9;12/07/2005;10:08:25;Maquillaje Sonido
 MOVIE;Fantasy;154;English;49;true;7.0;19/04/2008;13:16:29;Optico Sonido
 TV;Musical;49;Korean;49;true;7.3;21/01/2010;07:48:33;Maquillaje
 TV;Comedy;23;English;49;true;6.7;18/04/2013;10:41:40;Optico Sonido
@@ -1010,7 +1010,7 @@ TV;Kids;23;English;179;false;4.0;23/04/1999;08:27:51;Maquillaje
 TV;Kids;23;English;179;true;7.4;05/03/2006;09:55:58;Sonido
 TV;Kids;23;English;179;true;8.2;14/09/2008;20:58:09;Maquillaje Optico Sonido
 TV;Kids;23;English;179;false;0.6;18/07/2018;12:45:35;Maquillaje
-TV;Kids;26;English;181;false;10.1;13/11/2002;17:04:53;Optico
+TV;Kids;26;English;181;false;10.0;13/11/2002;17:04:53;Optico
 TV;Kids;26;English;181;true;3.1;08/11/2020;13:38:26;Optico Sonido
 TV;Documentary and Biography;51;English;174;true;3.2;15/02/2003;05:05:02;Sonido
 TV;Musical;28;Tagalog;167;false;2.12;19/08/2010;04:03:58;Maquillaje Sonido
@@ -2010,7 +2010,7 @@ MOVIE;Thriller;88;English;155;false;4.0;10/01/2001;10:24:08;Maquillaje
 MOVIE;Comedy;89;English;155;true;7.5;28/03/2002;05:35:07;Sonido
 MOVIE;Thriller;89;English;155;true;8.3;11/09/2020;08:25:12;Maquillaje Optico Sonido
 MOVIE;Thriller;87;English;155;false;0.7;28/09/2013;11:03:27;Maquillaje
-MOVIE;Musical;98;English;155;false;10.2;15/12/2022;13:48:31;Optico
+MOVIE;Musical;98;English;155;false;10.0;15/12/2022;13:48:31;Optico
 MOVIE;Musical;89;English;155;true;3.3;16/04/2011;13:52:04;Optico Sonido
 MOVIE;Action and Adventure;92;English;155;true;3.4;07/08/2013;02:23:37;Sonido
 MOVIE;Horror;91;English;155;false;2.22;15/02/2007;06:04:58;Maquillaje Sonido
@@ -3010,7 +3010,7 @@ MOVIE;Musical;94;English;256;false;4.0;09/09/2021;11:37:12;Maquillaje
 MOVIE;Musical;97;Indonesian;256;true;7.6;05/07/2011;21:19:13;Sonido
 TV;Fantasy;62;Korean;256;true;8.4;10/01/2002;23:41:58;Maquillaje Optico Sonido
 MOVIE;Crime and Mystery;93;Chinese;256;false;0.8;18/04/2000;12:48:06;Maquillaje
-MOVIE;Action and Adventure;102;Korean;256;false;10.3;21/01/2007;03:15:40;Optico
+MOVIE;Action and Adventure;102;Korean;256;false;10.0;21/01/2007;03:15:40;Optico
 TV;Fantasy;29;Tagalog;256;true;3.5;04/04/2016;07:08:59;Optico Sonido
 TV;Action and Adventure;28;Tagalog;256;true;3.6;20/09/1999;02:03:18;Sonido
 MOVIE;Action and Adventure;89;English;256;false;2.32;04/04/1999;07:20:40;Maquillaje Sonido
@@ -4008,7 +4008,7 @@ TV;Comedy;45;Spanish;331;false;4.0;29/09/2001;21:50:44;Maquillaje
 MOVIE;Thriller;111;Arabic;331;true;7.7;23/03/2013;20:32:40;Sonido
 MOVIE;Others;107;Malay;331;true;8.5;22/12/2004;00:57:05;Maquillaje Optico Sonido
 MOVIE;Horror;79;Malay;331;false;0.9;05/01/2008;14:31:11;Maquillaje
-MOVIE;Horror;87;Malay;331;false;10.4;29/10/2013;11:03:28;Optico
+MOVIE;Horror;87;Malay;331;false;10.0;29/10/2013;11:03:28;Optico
 MOVIE;Horror;95;Malay;331;true;3.7;21/01/1999;21:38:14;Optico Sonido
 MOVIE;Others;106;Malay;331;true;3.8;20/12/2022;11:05:51;Sonido
 MOVIE;Others;81;Malay;331;false;2.42;07/10/2016;13:18:19;Maquillaje Sonido
@@ -5008,7 +5008,7 @@ MOVIE;Music;54;Korean;419;false;4.0;08/09/2011;21:50:44;Maquillaje
 MOVIE;Action and Adventure;116;Malay;419;true;7.8;05/05/2008;20:32:40;Sonido
 TV;Musical;47;Spanish;419;true;8.6;19/04/2001;00:57:05;Maquillaje Optico Sonido
 TV;Musical;48;Spanish;419;false;0.10;13/01/2010;14:31:11;Maquillaje
-TV;Musical;47;Spanish;419;false;10.5;27/06/2022;11:03:28;Optico
+TV;Musical;47;Spanish;419;false;10.0;27/06/2022;11:03:28;Optico
 TV;Musical;46;Spanish;419;true;3.9;16/02/2014;21:38:14;Optico Sonido
 TV;Musical;47;Spanish;419;true;3.10;03/06/2020;11:05:51;Sonido
 TV;Musical;46;Spanish;419;false;2.52;26/09/2012;13:18:19;Maquillaje Sonido
@@ -6006,7 +6006,7 @@ TV;Fantasy;46;Chinese;421;false;4.0;03/03/2011;10:24:08;Maquillaje
 TV;Fantasy;46;Chinese;421;true;7.9;11/05/1999;05:35:07;Sonido
 TV;Fantasy;46;Chinese;421;true;8.7;24/02/2006;08:25:12;Maquillaje Optico Sonido
 TV;Fantasy;46;Chinese;421;false;0.11;22/09/2008;11:03:27;Maquillaje
-TV;Fantasy;46;Chinese;421;false;10.6;15/05/2010;13:48:31;Optico
+TV;Fantasy;46;Chinese;421;false;10.0;15/05/2010;13:48:31;Optico
 TV;Fantasy;46;Chinese;421;true;3.11;30/10/2000;13:52:04;Optico Sonido
 TV;Fantasy;46;Chinese;421;true;3.12;08/06/2001;02:23:37;Sonido
 TV;Fantasy;46;Chinese;421;false;2.62;06/02/2019;06:04:58;Maquillaje Sonido
@@ -7005,7 +7005,7 @@ TV;Kids;14;Korean;496;false;4.0;17/05/2006;10:24:08;Maquillaje
 TV;Kids;14;Korean;497;true;7.10;11/11/2002;05:35:07;Sonido
 TV;Kids;14;Korean;497;true;8.8;01/11/1999;08:25:12;Maquillaje Optico Sonido
 TV;Kids;14;Korean;497;false;0.12;12/06/2012;11:03:27;Maquillaje
-TV;Kids;14;Korean;497;false;10.7;24/07/2015;13:48:31;Optico
+TV;Kids;14;Korean;497;false;10.0;24/07/2015;13:48:31;Optico
 TV;Kids;14;Korean;497;true;3.13;24/12/2020;13:52:04;Optico Sonido
 TV;Kids;14;Korean;497;true;3.14;15/07/2000;02:23:37;Sonido
 TV;Kids;14;Korean;497;false;2.72;04/10/2011;06:04:58;Maquillaje Sonido

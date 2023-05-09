@@ -11,7 +11,7 @@ import fp.common.Horario;
 import fp.common.Siglo;
 import fp.utiles.Checkers;
 
-public class Pelicula {
+public class Pelicula implements Comparable<Pelicula> {
 	
 	//---------------------------------ATRIBUTOS-------------------------------------
 	private Formato showType;
