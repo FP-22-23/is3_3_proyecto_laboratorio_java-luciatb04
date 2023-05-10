@@ -135,7 +135,7 @@ public class PeliculasssContenedorTest {
 		//testGetSeriesTerminadasAcumuladasPorGenero(audivisual);
 		
 		System.out.println("===================================================");
-		//testGetMayorPeliculasPorAñoTerminadas(audivisual);
+		testGetMayorPeliculasPorAñoTerminadas(audivisual);
 		
 		
 	}
