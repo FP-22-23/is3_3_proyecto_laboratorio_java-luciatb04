@@ -183,8 +183,9 @@ public class PeliculasssContenedor {
 	}
 	
 	//filtrado con stream 
-	public Set<Pelicula> peliculasEntreDosDuracionesDadas(Integer max, Integer min){
-		return Peliculass.stream().filter(pe->pe.getRunningMinutes()>= min && pe.getRunningMinutes()<= max).collect(Collectors.toSet());
+	public Set<Pelicula> efectosEntreDosDuracionesDadas(Integer max, Integer min){
+		return Peliculass.stream().filter(pe->pe.getRunningMinutes()>= min && pe.getRunningMinutes()<= max)
+				.collect(Collectors.toSet());
 	}
 	
 	public Map<List<String>, Set<Integer>> getSeriesListaEfectosConjuntoAños(){
@@ -210,25 +211,29 @@ public class PeliculasssContenedor {
 	
 	//Collectors.mapping
 	public Map<Integer, Set<Integer>> agruparIdPorMes(){
-		return Peliculass.stream().filter(p->p.getShowType().equals(Formato.TV)).collect(Collectors.groupingBy(pe->pe.getFechaHora().getMonthValue(),
-				Collectors.mapping(pe->pe.getSeriesId(), Collectors.toSet())));
+		return Peliculass.stream().filter(p->p.getShowType().equals(Formato.TV))
+				.collect(Collectors.groupingBy(pe->pe.getFechaHora().getMonthValue(),
+						Collectors.mapping(pe->pe.getSeriesId(), Collectors.toSet())));
 	}
 	
 	//minimo en mapa
-	public Map<String, Pelicula> fechasConPeliculasConPeoresRankings(Integer año){
-		return Peliculass.stream().filter(pe->pe.getFechaHora().getYear()==año).collect(Collectors.groupingBy(Pelicula::getSourceLanguage,
-				Collectors.collectingAndThen(Collectors.minBy(Comparator.comparing(Pelicula::getRanking)), pe->pe.get())));
+	public Map<String, Double> fechasConPeliculasConPeoresRankings(Integer año){
+		return Peliculass.stream().filter(pe->pe.getFechaHora().getYear()==año)
+				.collect(Collectors.groupingBy(Pelicula::getSourceLanguage,
+						Collectors.collectingAndThen(Collectors.minBy(Comparator.comparing(Pelicula::getRanking)),
+								pe->pe.get().getRanking())));
 	}
 
 	//sortedMap
 	public SortedMap<String, Integer> getSeriesTerminadasAcumuladasPorGenero(){
 		return Peliculass.stream().filter(pe->pe.getShowType().equals(Formato.TV))
 				.filter(pe->pe.getFinished().equals(true))
-				.collect(Collectors.groupingBy(Pelicula::getGenre, TreeMap::new, Collectors.collectingAndThen(Collectors.counting(), l->l.intValue())));
+				.collect(Collectors.groupingBy(Pelicula::getGenre, TreeMap::new,
+						Collectors.collectingAndThen(Collectors.counting(), l->l.intValue())));
 		
 	}
 	
-	//Un método que calcule un Map y devuelva la clave con el valor asociado (mayor o menor) de todo el Map.
+	//Un método que calcule un Map y devuelva la clave con el valor asociado (mayor o menor) de todo el Map
 	
 	
 	public Entry<Integer, Long> getMayorPeliculasPorAñoTerminadas(){

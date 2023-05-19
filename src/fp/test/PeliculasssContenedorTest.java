@@ -17,7 +17,7 @@ import fp.common.Horario;
 
 public class PeliculasssContenedorTest {
 	
-	
+
 	public static void main(String[] args) {
 		List<Pelicula> peliculaFacto = new ArrayList<>();
 		peliculaFacto.addAll(PeliculasFactoria.leerPelicula("./data/peliculasdataset.csv"));
@@ -33,7 +33,7 @@ public class PeliculasssContenedorTest {
 		}	
 			
 		PeliculasssContenedor audivisual = PeliculasFactoria.leerPeliculasStream("./data/peliculasdataset.csv");
-		//testgetNumeroPeliculaIdiomaDeUnAño(audivisual);
+		
 		
 		Horario horario = new Horario (LocalDate.of(2015, 03, 06), LocalTime.of(21, 04, 53));
 		List<String> efectos= new ArrayList<String>(Arrays.asList("Opticos", "Maquillaje"));
@@ -123,16 +123,16 @@ public class PeliculasssContenedorTest {
 		testMejorRankingDeIdioma(audivisual, "Korean");
 		
 		System.out.println("===================================================");
-		//testObtenerNSeriesGeneroOrdenadosPorElRanking(audivisual, "Musical", 3);
+		testObtenerNSeriesGeneroOrdenadosPorElRanking(audivisual, "Musical", 3);
 		
 		System.out.println("===================================================");
-		//testAgruparIdPorMes(audivisual);
+		testAgruparIdPorMes(audivisual);
 		
 		System.out.println("===================================================");
-		//testFechasConPeliculasConPeoresRankings(audivisual, 2015);
+		testFechasConPeliculasConPeoresRankings(audivisual, 2015);
 		
 		System.out.println("===================================================");
-		//testGetSeriesTerminadasAcumuladasPorGenero(audivisual);
+		testGetSeriesTerminadasAcumuladasPorGenero(audivisual);
 		
 		System.out.println("===================================================");
 		testGetMayorPeliculasPorAñoTerminadas(audivisual);
@@ -202,7 +202,7 @@ public class PeliculasssContenedorTest {
 	private static void testCalcularMinutosTotalesPorIdioma(PeliculasssContenedor audivisual, String idioma) {
 		System.out.println("\n TEST CALCULAR MINUTOS TOTALES POR IDIOMA");
 		try {
-			System.out.println(String.format("El total de la duracion del idioma"+ "es: \n", audivisual.calcularMinutosTotalesPorIdioma(idioma)));
+			System.out.println(String.format("El total de la duracion del idioma "+ " es: \n", audivisual.calcularMinutosTotalesPorIdioma(idioma)));
 		}catch (Exception e){
 			System.out.println("Excepcion capturada: "+e);
 		}
@@ -222,7 +222,7 @@ public class PeliculasssContenedorTest {
 	private static void testPeliculasEntreDosDuracionesDadas(PeliculasssContenedor audivisual, Integer max, Integer min ) {
 		System.out.println("\n TEST CONJUNTO DE PELICULAS ENTRE DOS DURACIONES");
 		try {
-			System.out.println(String.format("este es el conjunto de peliculas y series que esten entre las dos duraciones "+max+" y "+min + audivisual.peliculasEntreDosDuracionesDadas(max, min)));
+			System.out.println(String.format("este es el conjunto de peliculas y series que esten entre las dos duraciones "+max+" y "+min + audivisual.efectosEntreDosDuracionesDadas(max, min)));
 		}catch(Exception e) {
 			System.out.println("Excepcion capturada: "+ e);
 		}

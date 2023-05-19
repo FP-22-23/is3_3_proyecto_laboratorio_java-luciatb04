@@ -103,6 +103,6 @@ public class PeliculasFactoria {
 		return new Pelicula(formato, genre,runningMinutes, sourceLanguage, peliculaId, finished, ranking,
 				efectos, fechaHora, horario);
 	}
-	
+
 
 }

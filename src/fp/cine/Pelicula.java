@@ -144,7 +144,7 @@ public class Pelicula implements Comparable<Pelicula> {
 
 	
 	public List<String> getEfectosEspeciales() {
-		return efectosEspeciales;
+		return new ArrayList<String>(efectosEspeciales);
 	}
 	
 	public void setEfectos_especiales(List<String> efectosEspeciales) {
@@ -220,7 +220,6 @@ public class Pelicula implements Comparable<Pelicula> {
 		
 		if (p1== 0.0) {
 			p1= getGenre().compareTo(p.getGenre());
-			
 		}
 	
 	return p1;
