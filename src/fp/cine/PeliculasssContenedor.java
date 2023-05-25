@@ -244,6 +244,19 @@ public class PeliculasssContenedor {
     	return m.entrySet().stream().max(Comparator.comparing(p -> p.getValue())).get(); 
     }
 
+	//------------------------------------------------DEFENSA---------------------------------------------------
+		public Integer peorRankingAcabadaIidoma(String idioma) {
+			return Peliculass.stream().filter(pe->pe.getSourceLanguage().equals(idioma))
+					.filter(pe->pe.getFinished().equals(true))
+					.min(Comparator.comparing(p->p.getRanking())).map(p->p.getSeriesId()).orElse(null); 
+		}
+		
+		public Map<Integer, Long> numeroMinutosPorAnyo(){
+			return  Peliculass.stream().collect(Collectors.groupingBy(p->p.getFechaHora().getYear(),
+					 Collectors.summingLong(p->p.getRunningMinutes() )));
+			
+		}
+		
 
 }
 

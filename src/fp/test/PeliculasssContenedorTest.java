@@ -137,7 +137,8 @@ public class PeliculasssContenedorTest {
 		System.out.println("===================================================");
 		testGetMayorPeliculasPorAñoTerminadas(audivisual);
 		
-		
+		testpeorRankingAcabadaIidoma(audivisual, "Spanish");
+		testNumeroMinutosPorAnyo(audivisual);
 	}
 	private static void testContenedor(List<Pelicula> pelicula) {
 		
@@ -301,13 +302,33 @@ public class PeliculasssContenedorTest {
 
 	
 	
+	
 	private static <K, V> void imprimeMap(Map<K, V> map) {
 		map.entrySet().stream()
 		 .forEach(entry->System.out.println( entry.getKey() + " --> "
 		+ entry.getValue() ));
 	}
 	
-
+	private static void testNumeroMinutosPorAnyo(PeliculasssContenedor audivisual) {
+		System.out.println("\n DEFENSA");
+		try {
+			System.out.println("defensa funcion creada");
+			imprimeMap(audivisual.numeroMinutosPorAnyo());
+		}catch(Exception e) {
+			System.out.println("Excepcion capturada: "+ e);
+		}
+	}
+	
+	private static void testpeorRankingAcabadaIidoma(PeliculasssContenedor audivisual, String idioma) {
+		System.out.println("\n DEFENSA");
+		try {
+			System.out.println(String.format("defensa funcion modificada " + audivisual.peorRankingAcabadaIidoma(idioma)));
+			
+		}catch(Exception e) {
+			System.out.println("Excepcion capturada: "+ e);
+		}
+	}
+		
 }
 
 
